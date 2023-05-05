@@ -16,40 +16,40 @@
             <table class="table">
                 <tr>
                   <td class="td">Name</td>
-                  <td><input type="text" id="name" class="name" placeholder="Enter your name here..."></td>
+                  <td><input type="text" id="name" name="Name" class="name" placeholder="Enter your name here..."></td>
                 </tr>
                 <tr>
                   <td class="td">Email</td>
-                  <td><input type="email" id="email" class="email" placeholder="Enter your email here..."></td>
+                  <td><input type="email" id="email" name="Email" class="email" placeholder="Enter your email here..."></td>
                 </tr>
                 <tr>
                   <td class="td">Contact</td>
-                  <td><input type="tel" id="contact" class="contact" placeholder="Enter your phone no. here..."></td>
+                  <td><input type="tel" id="contact" name="Contact" class="contact" placeholder="Enter your phone no. here..."></td>
                 </tr>
                 <tr>
                   <td class="td">Address</td>
-                  <td><input type="address" id="address" class="address" placeholder="Enter your address here..."></td>
+                  <td><input type="address" id="address" class="address" name="Address" placeholder="Enter your address here..."></td>
                 </tr>
                 <tr>
                   <td class="td">Gender</td>
                   <td>
-                    <label><input type="radio" name="gender" id="male" class="male" value="male">Male</label>
-                    <label><input type="radio" name="gender" id="female" class="female" value="female">Female</label>
+                    <label><input type="radio" name="Gender" id="gender" class="male" value="male">Male</label>
+                    <label><input type="radio" name="Gender" id="gender" class="female" value="female">Female</label>
                   </td>
                 </tr>
                 <tr>
                   <td class="td">Languages</td>
                   <td>
-                    <label><input type="checkbox" name="language" id="language" class="language" value="c">C</label>
-                    <label><input type="checkbox" name="language" id="language" class="language" value="cpp">C++</label>
-                    <label><input type="checkbox" name="language" id="language" class="language" value="python">Python</label>
-                    <label><input type="checkbox" name="language" id="language" class="language" value="javascript">JavaScript</label>
+                    <label><input type="checkbox" name="Language" id="language" class="language" value="c">C</label>
+                    <label><input type="checkbox" name="Language" id="language" class="language" value="cpp">C++</label>
+                    <label><input type="checkbox" name="Language" id="language" class="language" value="python">Python</label>
+                    <label><input type="checkbox" name="Language" id="language" class="language" value="javascript">JavaScript</label>
                   </td>
                 </tr>
                 <tr>
                   <td class="td">Identity Proof</td>
                   <td>
-                    <select id="proof">
+                    <select id="proof" name="Identity Proof">
                       <option>Option</option>
                       <option>Aadhar Card</option>
                       <option>License</option>
@@ -62,13 +62,13 @@
                   <td>
                     <br>
                 <br>
-                    <button type="submit" onclick="saveData(event)" class="btn">Submit</button>
+                    <button type="submit"  class="btn">Submit</button>
                   </td>
                 </tr>
               </table>
             </form>
               <div>
-                <button id="showdata" class="btn" onclick="showData()">Show Data</button>
+                <button id="showdata" class="btn" onclick="showData()" >Show Data</button>
                 <br>
                 <br>
                 <div id="output"></div>

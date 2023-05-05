@@ -9,7 +9,7 @@ body {
 
   .container{
     padding: 20px;
-    background-color: rgb(32, 193, 193);
+    background-color: #C8B6A6;
     /* height: 100vh; */
     width: 50%;
     margin: 0 auto;
@@ -17,7 +17,7 @@ body {
 }
 
 .nav {
-    background-color: #235d63;
+    background-color: #A4907C;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -55,11 +55,10 @@ input[type="radio"],
 input[type="checkbox"] {
   margin-right: 10px;
   margin-left: 10px;
-
 }
 
 .btn {
-    background-color: #235d63;
+    background-color: #A4907C;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -70,9 +69,10 @@ input[type="checkbox"] {
   .btn:hover{
     background-color: black;
   }
-  /* #output{
-    border: 1px solid black;
-  } */
+
+  #showdata{
+    display: none;
+  }
 
   /* Responsive styles */
 @media screen and (max-width: 600px) {
