@@ -12,67 +12,58 @@
       <nav class="nav">
         <h1>Form</h1>
     </nav>
-    <form>
-            <table class="table">
-                <tr>
-                  <td class="td">Name</td>
-                  <td><input type="text" id="name" name="Name" class="name" placeholder="Enter your name here..."></td>
-                </tr>
-                <tr>
-                  <td class="td">Email</td>
-                  <td><input type="email" id="email" name="Email" class="email" placeholder="Enter your email here..."></td>
-                </tr>
-                <tr>
-                  <td class="td">Contact</td>
-                  <td><input type="tel" id="contact" name="Contact" class="contact" placeholder="Enter your phone no. here..."></td>
-                </tr>
-                <tr>
-                  <td class="td">Address</td>
-                  <td><input type="address" id="address" class="address" name="Address" placeholder="Enter your address here..."></td>
-                </tr>
-                <tr>
-                  <td class="td">Gender</td>
-                  <td>
-                    <label><input type="radio" name="Gender" id="gender" class="male" value="male">Male</label>
-                    <label><input type="radio" name="Gender" id="gender" class="female" value="female">Female</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="td">Languages</td>
-                  <td>
-                    <label><input type="checkbox" name="Language" id="language" class="language" value="c">C</label>
-                    <label><input type="checkbox" name="Language" id="language" class="language" value="cpp">C++</label>
-                    <label><input type="checkbox" name="Language" id="language" class="language" value="python">Python</label>
-                    <label><input type="checkbox" name="Language" id="language" class="language" value="javascript">JavaScript</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="td">Identity Proof</td>
-                  <td>
-                    <select id="proof" name="Identity Proof">
-                      <option>Option</option>
-                      <option>Aadhar Card</option>
-                      <option>License</option>
-                      <option>Passport</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>
-                    <br>
-                <br>
-                    <button type="submit"  class="btn">Submit</button>
-                  </td>
-                </tr>
-              </table>
-            </form>
-              <div>
-                <button id="showdata" class="btn" onclick="showData()" >Show Data</button>
-                <br>
-                <br>
-                <div id="output"></div>
-              </div>
+    <form id="form">
+        <div class="form-group">
+            <label for="name" class="label">Name:</label>
+            <input type="text" id="name" name="Name" class="input" placeholder="Enter your name here...">
+            <div class="error"></div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="label">Email:</label>
+            <input type="email" id="email" name="Email" class="input" placeholder="Enter your email here...">
+            <div class="error"></div>
+        </div>
+        <div class="form-group">
+            <label for="contact" class="label">Contact:</label>
+            <input type="tel" id="contact" name="Contact" class="input" placeholder="Enter your phone no. here...">
+            <div class="error"></div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="label">Address:</label>
+            <input type="address" id="address" class="input" name="Address" placeholder="Enter your address here...">
+            <div class="error"></div>
+        </div>
+        <div class="form-group">
+            <label class="label">Gender:</label>
+            <label><input type="radio" name="Gender" id="gender" class="input" value="male">Male</label>
+            <label><input type="radio" name="Gender" id="gender" class="input" value="female">Female</label>
+        </div>
+        <div class="form-group">
+            <label class="label">Languages:</label>
+            <label><input type="checkbox" name="Language" id="language" class="input" value="c">C</label>
+            <label><input type="checkbox" name="Language" id="language" class="input" value="cpp">C++</label>
+            <label><input type="checkbox" name="Language" id="language" class="input" value="python">Python</label>
+            <label><input type="checkbox" name="Language" id="language" class="input" value="javascript">JavaScript</label>
+        </div>
+        <div class="form-group">
+            <label for="proof" class="label">Identity Proof:</label>
+            <select id="proof" name="Identity Proof" class="input">
+                <option>Option</option>
+                <option>Aadhar Card</option>
+                <option>License</option>
+                <option>Passport</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit"  class="btn">Submit</button>
+        </div>
+    </form>
+    <div>
+        <button id="showdata" class="btn" onclick="showData()" >Show Data</button>
+        <br>
+        <br>
+        <div id="output"></div>
+    </div>
     </div>
     <script src="form.js"></script>
 </body>
