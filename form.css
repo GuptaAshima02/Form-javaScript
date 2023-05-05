@@ -103,6 +103,6 @@ input[type="address"] {
   input[type="email"],
   input[type="tel"],
   input[type="address"] {
-    width: 100%;
+    width: 90%;
   }
 }
