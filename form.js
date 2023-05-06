@@ -1,164 +1,181 @@
-let record=JSON.parse(localStorage.getItem("record"))??[];
-const form = document.querySelector('form');
-const output = document.getElementById('output');
+let record = JSON.parse(localStorage.getItem("record")) ?? [];
+const form = document.querySelector("form");
+let isFormValid = false;
 
-form.addEventListener('submit', (e) => {
-
+form.addEventListener("submit", (e) => {
   e.preventDefault(); // Prevent HTML refresh
- // Validate inputs
- const isValid = validateInputs();
 
- if (isValid) {
-   // Submit the form
-   const formData = new FormData(form);
-   const obj = Object.fromEntries(formData);
-   let Languages = "";
-   let languagelist = document.querySelectorAll("#language");
-   for (let item of languagelist) {
-     if (item.checked == true) {
-       Languages = Languages.concat(item.value, " ");
-     }
-   }
+  // Validate the form inputs
+  validateName();
+  validateEmail();
+  validateContact();
+  validateAddress();
 
-   obj.Language = Languages;
+  if (form.querySelectorAll(".success").length === 4) {
+    isFormValid = true;
+  }
 
-   record.push(obj);
-   let json = JSON.stringify(record);
-   localStorage.setItem('record', json);
+  if (isFormValid) {
+    // Submit the form
+    const formData = new FormData(form);
+    const obj = Object.fromEntries(formData);
+    let Languages = "";
+    let languagelist = document.querySelectorAll("#language");
+    for (let item of languagelist) {
+      if (item.checked == true) {
+        Languages = Languages.concat(item.value, " ");
+      }
+    }
+    obj.Language = Languages;
 
-   document.getElementById("showdata").style.display = "inline";
+    record.push(obj);
+    let json = JSON.stringify(record);
+    localStorage.setItem("record", json);
 
-  //  showData();
- }
+    // Show the "Show Data" button
+    document.getElementById("showdata").style.display = "inline";
+  } else {
+    // Hide the "Show Data" button
+    document.getElementById("showdata").style.display = "none";
+  }
 });
 
-//search
-// document.getElementById("search").addEventListener("keyup",()=>{
-//   let value=document.getElementById("search").value;
-//   let output=document.getElementById("output");
-//   let string = JSON.parse(localStorage.getItem("record"));
-//   let filterData=string.filter((item)=>{
-//     if(item.name.includes(value)){
-//       return item;
-//     }
-//   })
-//   output.innerHTML+="<br><br>";
-//   for(eachrecord of filter){
-//     for(item in eachrecord){
-//       output.innerHTML +=  item +" : "+eachrecord[item] + "<br>";
-
-//     }
-//     output.innerHTML+="<br><br>"
-//   }
-//   output.style.display = "block";
-
-
-// })
-function showData(){
-
+function showData() {
   let string = localStorage.getItem("record");
-  
-   array = JSON.parse(string);
+  let output = document.getElementById("output");
+  let empty = document.getElementById("empty");
 
-  let data=document.getElementById("output")
-  
-  data.innerHTML+="<br><br>";
-  for(eachrecord of array){
-    for(item in eachrecord){
-      data.innerHTML +=  item +" : "+eachrecord[item] + "<br>";
+  array = JSON.parse(string);
+  empty.innerHTML = "";
 
+  for (eachrecord of array) {
+    let continer = document.createElement("div");
+    empty.appendChild(continer);
+    for (item in eachrecord) {
+      let key = document.createTextNode(item);
+      let value = document.createTextNode(eachrecord[item]);
+      continer.appendChild(key);
+      continer.appendChild(value);
     }
-    data.innerHTML+="<br>"
   }
-  data.style.display = "block";
+  output.style.display = "block";
 }
 
-//form validation
-const namee = document.getElementById('name');
-const email = document.getElementById('email');
-const contact = document.getElementById('contact');
-const address = document.getElementById('address');
+const namee = document.getElementById("name");
+const email = document.getElementById("email");
+const contact = document.getElementById("contact");
+const address = document.getElementById("address");
 
 const setError = (element, message) => {
   const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector('.error');
+  const errorDisplay = inputControl.querySelector(".error");
 
   errorDisplay.innerText = message;
-  inputControl.classList.add('error');
-  inputControl.classList.remove('success')
-}
+  inputControl.classList.add("error");
+  inputControl.classList.remove("success");
+};
 
-const setSuccess = element => {
+const setSuccess = (element) => {
   const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector('.error');
+  const errorDisplay = inputControl.querySelector(".error");
 
-  errorDisplay.innerText = '';
-  inputControl.classList.add('success');
-  inputControl.classList.remove('error');
+  errorDisplay.innerText = "";
+  inputControl.classList.add("success");
+  inputControl.classList.remove("error");
 };
 
 // Function to check if an email address is valid
-const isValidEmail = email => {
+const isValidEmail = (email) => {
   const regx = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   return regx.test(String(email).toLowerCase());
-}
+};
 
 // Function to check if a phone number is valid
-const isValidPhoneNumber = phoneNumber => {
+const isValidPhoneNumber = (phoneNumber) => {
   const regx = /^\d{10}$/;
   return regx.test(phoneNumber);
-}
+};
 
 // Function to check if an address is valid
-const isValidAddress = address => {
+const isValidAddress = (address) => {
   const regx = /^[a-zA-Z0-9\s,'-]*$/;
   return regx.test(address);
-}
+};
 
-const validateInputs = () => {
+const validateName = () => {
   const nameValue = namee.value.trim();
-  const emailValue = email.value.trim();
-  const contactValue = contact.value.trim();
-  const addressValue = address.value.trim();
 
-  if (nameValue === '') {
-    setError(namee, 'Name is required');
+  if (nameValue === "") {
+    setError(namee, "Name is required");
   } else {
     setSuccess(namee);
   }
+};
 
-  if (emailValue === '') {
-    setError(email, 'Email is required');
+const validateEmail = () => {
+  const emailValue = email.value.trim();
+
+  if (emailValue === "") {
+    setError(email, "Email is required");
   } else if (!isValidEmail(emailValue)) {
-    setError(email, 'Provide a valid email address');
+    setError(email, "Provide a valid email address");
   } else {
     setSuccess(email);
   }
+};
 
-  if (contactValue === '') {
-    setError(contact, 'Contact is required');
+const validateContact = () => {
+  const contactValue = contact.value.trim();
+
+  if (contactValue === "") {
+    setError(contact, "Contact is required");
   } else if (!isValidPhoneNumber(contactValue)) {
-    setError(contact, 'Provide a valid contact');
+    setError(contact, "Provide a valid contact");
   } else {
     setSuccess(contact);
   }
+};
 
-  if (addressValue === '') {
-    setError(address, 'Address is required');
+const validateAddress = () => {
+  const addressValue = address.value.trim();
+
+  if (addressValue === "") {
+    setError(address, "Address is required");
   } else if (!isValidAddress(addressValue)) {
-    setError(address, 'Provide a valid address');
+    setError(address, "Provide a valid address");
   } else {
     setSuccess(address);
   }
-
-  // Check if any input control has the 'error' class applied to it
-  const hasErrors = document.querySelectorAll('.form-group.error').length > 0;
-
-  if (hasErrors) {
-    // Stop form submission
-    return false;
-  } else {
-    // Allow form submission
-    return true;
-  }
 };
+
+namee.addEventListener("blur", validateName);
+email.addEventListener("blur", validateEmail);
+contact.addEventListener("blur", validateContact);
+address.addEventListener("blur", validateAddress);
+
+
+document.querySelector(".search").addEventListener("keyup", function () {
+  console.log("first");
+  let value = document.getElementById("search").value;
+  let output = document.getElementById("output");
+  let empty = document.getElementById("empty");
+  let string = JSON.parse(localStorage.getItem("record"));
+  console.log(string);
+  empty.innerHTML="";
+  let filterData = string.filter((item) => {
+    if (item.Name.includes(value)) {
+      return item;
+    }
+  });
+
+  for (eachrecord of filterData) {
+    let continer = document.createElement("div");
+    empty.appendChild(continer);
+    for (item in eachrecord) {
+      let key = document.createTextNode(item);
+      let value = document.createTextNode(eachrecord[item]);
+      continer.appendChild(key);
+      continer.appendChild(value);
+    }
+  }
+});

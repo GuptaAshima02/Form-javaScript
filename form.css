@@ -26,10 +26,22 @@ body {
   padding: 20px;
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px black;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 5%;
   display: none;
+}
+#output div {
+  margin-bottom: 10px;
+}
+
+#output div span:first-child {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#output h2 {
+  margin-top: 20px;
 }
 .btn {
   padding: 10px;
