@@ -1,4 +1,4 @@
-let record=[];
+let record=JSON.parse(localStorage.getItem("record"))??[];
 const form = document.querySelector('form');
 const output = document.getElementById('output');
 
@@ -32,18 +32,45 @@ form.addEventListener('submit', (e) => {
  }
 });
 
+//search
+// document.getElementById("search").addEventListener("keyup",()=>{
+//   let value=document.getElementById("search").value;
+//   let output=document.getElementById("output");
+//   let string = JSON.parse(localStorage.getItem("record"));
+//   let filterData=string.filter((item)=>{
+//     if(item.name.includes(value)){
+//       return item;
+//     }
+//   })
+//   output.innerHTML+="<br><br>";
+//   for(eachrecord of filter){
+//     for(item in eachrecord){
+//       output.innerHTML +=  item +" : "+eachrecord[item] + "<br>";
+
+//     }
+//     output.innerHTML+="<br><br>"
+//   }
+//   output.style.display = "block";
+
+
+// })
 function showData(){
 
   let string = localStorage.getItem("record");
+  
    array = JSON.parse(string);
+
   let data=document.getElementById("output")
-  data.innerHTML="";
+  
+  data.innerHTML+="<br><br>";
   for(eachrecord of array){
     for(item in eachrecord){
-      data.innerHTML += item +" : "+eachrecord[item] + "<br>";
+      data.innerHTML +=  item +" : "+eachrecord[item] + "<br>";
 
     }
+    data.innerHTML+="<br>"
   }
+  data.style.display = "block";
 }
 
 //form validation
@@ -72,7 +99,7 @@ const setSuccess = element => {
 
 // Function to check if an email address is valid
 const isValidEmail = email => {
-  const regx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const regx = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   return regx.test(String(email).toLowerCase());
 }
 

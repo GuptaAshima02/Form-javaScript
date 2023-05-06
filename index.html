@@ -1,70 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="form.css" />
     <title>Form</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
       <nav class="nav">
         <h1>Form</h1>
-    </nav>
-    <form id="form">
+      </nav>
+      <form id="form">
         <div class="form-group">
-            <label for="name" class="label">Name:</label>
-            <input type="text" id="name" name="Name" class="input" placeholder="Enter your name here...">
-            <div class="error"></div>
+          <label for="name" class="label">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="Name"
+            class="input"
+            placeholder="Enter your name here..."
+          />
+          <div class="error"></div>
         </div>
         <div class="form-group">
-            <label for="email" class="label">Email:</label>
-            <input type="email" id="email" name="Email" class="input" placeholder="Enter your email here...">
-            <div class="error"></div>
+          <label for="email" class="label">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="Email"
+            class="input"
+            placeholder="Enter your email here..."
+          />
+          <div class="error"></div>
         </div>
         <div class="form-group">
-            <label for="contact" class="label">Contact:</label>
-            <input type="tel" id="contact" name="Contact" class="input" placeholder="Enter your phone no. here...">
-            <div class="error"></div>
+          <label for="contact" class="label">Contact:</label>
+          <input
+            type="tel"
+            id="contact"
+            name="Contact"
+            class="input"
+            placeholder="Enter your phone no. here..."
+          />
+          <div class="error"></div>
         </div>
         <div class="form-group">
-            <label for="address" class="label">Address:</label>
-            <input type="address" id="address" class="input" name="Address" placeholder="Enter your address here...">
-            <div class="error"></div>
+          <label for="address" class="label">Address:</label>
+          <input
+            type="address"
+            id="address"
+            class="input"
+            name="Address"
+            placeholder="Enter your address here..."
+          />
+          <div class="error"></div>
         </div>
         <div class="form-group">
-            <label class="label">Gender:</label>
-            <label><input type="radio" name="Gender" id="gender" class="input" value="male">Male</label>
-            <label><input type="radio" name="Gender" id="gender" class="input" value="female">Female</label>
+          <label class="label">Gender:</label>
+          <label
+            ><input
+              type="radio"
+              name="Gender"
+              id="gender"
+              class="input"
+              value="male"
+            />Male</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="Gender"
+              id="gender"
+              class="input"
+              value="female"
+            />Female</label
+          >
         </div>
         <div class="form-group">
-            <label class="label">Languages:</label>
-            <label><input type="checkbox" name="Language" id="language" class="input" value="c">C</label>
-            <label><input type="checkbox" name="Language" id="language" class="input" value="cpp">C++</label>
-            <label><input type="checkbox" name="Language" id="language" class="input" value="python">Python</label>
-            <label><input type="checkbox" name="Language" id="language" class="input" value="javascript">JavaScript</label>
+          <label class="label">Languages:</label>
+          <label
+            ><input
+              type="checkbox"
+              name="Language"
+              id="language"
+              class="input"
+              value="c"
+            />C</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="Language"
+              id="language"
+              class="input"
+              value="cpp"
+            />C++</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="Language"
+              id="language"
+              class="input"
+              value="python"
+            />Python</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="Language"
+              id="language"
+              class="input"
+              value="javascript"
+            />JavaScript</label
+          >
         </div>
         <div class="form-group">
-            <label for="proof" class="label">Identity Proof:</label>
-            <select id="proof" name="Identity Proof" class="input">
-                <option>Option</option>
-                <option>Aadhar Card</option>
-                <option>License</option>
-                <option>Passport</option>
-            </select>
+          <label for="proof" class="label">Identity Proof:</label>
+          <select id="proof" name="Identity Proof" class="input">
+            <option>Option</option>
+            <option>Aadhar Card</option>
+            <option>License</option>
+            <option>Passport</option>
+          </select>
         </div>
         <div class="form-group">
-            <button type="submit"  class="btn">Submit</button>
+          <button type="submit" class="btn">Submit</button>
         </div>
-    </form>
-    <div>
-        <button id="showdata" class="btn" onclick="showData()" >Show Data</button>
-        <br>
-        <br>
-        <div id="output"></div>
+      </form>
+      <div>
+        <button id="showdata" class="btn" onclick="showData()">
+          Show Data
+        </button>
+        <br />
+        <br />
+      </div>
     </div>
+    <div id="output">
+      <input
+        type="search"
+        placeholder="Search by name..."
+        id="search"
+        name="search"
+        class="search"
+      />
     </div>
     <script src="form.js"></script>
-</body>
+  </body>
 </html>
