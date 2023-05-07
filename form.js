@@ -45,19 +45,35 @@ function showData() {
   let output = document.getElementById("output");
   let empty = document.getElementById("empty");
 
-  array = JSON.parse(string);
+  let records = JSON.parse(string);
   empty.innerHTML = "";
 
-  for (eachrecord of array) {
-    let continer = document.createElement("div");
-    empty.appendChild(continer);
-    for (item in eachrecord) {
-      let key = document.createTextNode(item);
-      let value = document.createTextNode(eachrecord[item]);
-      continer.appendChild(key);
-      continer.appendChild(value);
+  for (let i = 0; i < records.length; i++) {
+    let table = document.createElement("table");
+    let tableHead = document.createElement("thead");
+    let tableBody = document.createElement("tbody");
+    table.style.border = "1px solid black"; // add border
+
+
+    // Create table rows
+    let record = records[i];
+    for (let field in record) {
+      let row = document.createElement("tr");
+      let nameCell = document.createElement("td");
+      let valueCell = document.createElement("td");
+      nameCell.textContent = field;
+      valueCell.textContent = record[field];
+      row.appendChild(nameCell);
+      row.appendChild(valueCell);
+      tableBody.appendChild(row);
     }
+
+    // Add table to container
+    table.appendChild(tableHead);
+    table.appendChild(tableBody);
+    empty.appendChild(table);
   }
+
   output.style.display = "block";
 }
 
@@ -153,15 +169,13 @@ email.addEventListener("blur", validateEmail);
 contact.addEventListener("blur", validateContact);
 address.addEventListener("blur", validateAddress);
 
-
 document.querySelector(".search").addEventListener("keyup", function () {
-  console.log("first");
   let value = document.getElementById("search").value;
   let output = document.getElementById("output");
   let empty = document.getElementById("empty");
   let string = JSON.parse(localStorage.getItem("record"));
-  console.log(string);
-  empty.innerHTML="";
+  empty.innerHTML = "";
+
   let filterData = string.filter((item) => {
     if (item.Name.includes(value)) {
       return item;
@@ -169,13 +183,28 @@ document.querySelector(".search").addEventListener("keyup", function () {
   });
 
   for (eachrecord of filterData) {
-    let continer = document.createElement("div");
-    empty.appendChild(continer);
-    for (item in eachrecord) {
-      let key = document.createTextNode(item);
-      let value = document.createTextNode(eachrecord[item]);
-      continer.appendChild(key);
-      continer.appendChild(value);
+    let table = document.createElement("table");
+    let tableHead = document.createElement("thead");
+    let tableBody = document.createElement("tbody");
+    table.style.border = "1px solid black"; // add border
+
+    // Create table rows
+    for (field in eachrecord) {
+      let row = document.createElement("tr");
+      let nameCell = document.createElement("td");
+      let valueCell = document.createElement("td");
+      nameCell.textContent = field;
+      valueCell.textContent = eachrecord[field];
+      row.appendChild(nameCell);
+      row.appendChild(valueCell);
+      tableBody.appendChild(row);
     }
+
+    // Add table to container
+    table.appendChild(tableHead);
+    table.appendChild(tableBody);
+    empty.appendChild(table);
   }
+
+  // output.style.display = "block";
 });

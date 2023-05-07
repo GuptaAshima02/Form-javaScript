@@ -12,7 +12,7 @@ body {
 }
 .nav h1 {
   margin: 0;
-  font-size: 30px;
+  font-size: 30pxdisplay: grid;  grid-template-columns: 1fr 1fr;;
 }
 .container{
   padding: 20px;
@@ -26,13 +26,15 @@ body {
   padding: 20px;
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px black;
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
   margin-top: 5%;
   display: none;
 }
 #output div {
   margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 #output div span:first-child {
@@ -43,6 +45,20 @@ body {
 #output h2 {
   margin-top: 20px;
 }
+.search {
+  font-size: 16px;
+  padding: 8px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.search:focus {
+  border-color: #6788c4;
+}
+
+
 .btn {
   padding: 10px;
   margin-top: 10px;
@@ -109,6 +125,18 @@ input[type="address"] {
   input[type="address"] {
     width: 90%;
   }
+  #output {
+    width: 90%;
+    padding: 10px;
+  }
+  
+  #output div {
+    grid-template-columns: 1fr;
+  }
+  
+  #output div span:first-child {
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -125,6 +153,17 @@ input[type="address"] {
   input[type="email"],
   input[type="tel"],
   input[type="address"] {
-    width: 90%;
+    width: 80%;
+  }
+  #output {
+    width: 80%;
+  }
+  
+  #output div {
+    grid-template-columns: 1fr ;
+  }
+  
+  #output div span:first-child {
+    margin-bottom: 0;
   }
 }
