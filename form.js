@@ -102,7 +102,7 @@ const setSuccess = (element) => {
 
 // Function to check if an email address is valid
 const isValidEmail = (email) => {
-  const regx = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+  const regx =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   return regx.test(String(email).toLowerCase());
 };
 
