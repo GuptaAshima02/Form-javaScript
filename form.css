@@ -1,6 +1,6 @@
 body {
   background: #6788c4;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .nav {
@@ -14,10 +14,10 @@ body {
 .nav h1 {
   margin: 0;
   font-size: 30px;
-  display: grid;  
-  grid-template-columns: 1fr 1fr;;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.container{
+.container {
   padding: 20px;
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px black;
@@ -25,29 +25,17 @@ body {
   margin: 0 auto;
   margin-top: 5%;
 }
-#output{
+#output {
   padding: 20px;
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px black;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 5%;
   display: none;
 }
-#output div {
-  margin-bottom: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
 
-#output div span:first-child {
-  font-weight: bold;
-  margin-right: 10px;
-}
 
-#output h2 {
-  margin-top: 20px;
-}
 .search {
   font-size: 16px;
   padding: 8px;
@@ -61,7 +49,6 @@ body {
   border-color: #6788c4;
 }
 
-
 .btn {
   padding: 10px;
   margin-top: 10px;
@@ -71,20 +58,41 @@ body {
   border: 1px black solid;
   border-radius: 4px;
 }
-.btn:hover{
+.btn:hover {
   background-color: black;
   border: 1px white solid;
 }
-#showdata{
-  display: none;
+#showdata {
+  /* display: none; */
 }
-.form-group{
+#empty table {
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: unset;
+}
+#empty th {
+  border: 2px solid black;
+  text-align: center;
+  word-wrap: break-word;
+}
+#empty td {
+  border: 2px solid black;
+  text-align: left;
+  word-wrap: break-word;
+  padding: 2px 5px;
+  /* width: 50%; */
+}
+
+#empty button {
+  margin-right: 5px;
+}
+.form-group {
   margin-bottom: 15px;
 }
 .form-group input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="address"]{
+input[type="address"] {
   display: flex;
   flex-direction: column;
 }
@@ -133,11 +141,11 @@ input[type="address"] {
     width: 90%;
     padding: 10px;
   }
-  
+
   #output div {
     grid-template-columns: 1fr;
   }
-  
+
   #output div span:first-child {
     margin-bottom: 10px;
   }
@@ -162,11 +170,11 @@ input[type="address"] {
   #output {
     width: 80%;
   }
-  
+
   #output div {
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
   }
-  
+
   #output div span:first-child {
     margin-bottom: 0;
   }
